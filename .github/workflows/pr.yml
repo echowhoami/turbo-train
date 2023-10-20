@@ -1,0 +1,22 @@
+name: Create Pull Request Prerelease
+
+on: pull_request
+
+jobs:
+  build:
+    if: ${{ github.repository_owner == 'echowhoami' }}
+    name: Build & Publish a Prerelease to the Adhoc Registry
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Upload runtime versions
+        uses: actions/upload-artifact@v3
+        with:
+          name: runtime-versions.md
+          path: runtime-versions.md
+
