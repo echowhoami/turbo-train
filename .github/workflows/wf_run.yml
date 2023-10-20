@@ -8,7 +8,7 @@ on:
 
 jobs:
   comment:
-    if: ${{ github.repository_owner == 'cloudflare' }}
+    if: ${{ github.repository_owner == 'echowhoami' }}
     runs-on: ubuntu-latest
     name: Write comment to the PR
     steps:
