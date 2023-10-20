@@ -32,7 +32,7 @@ jobs:
           EOF
           gcc -shared -fPIC -o lib.so lib.c
           chmod +x lib.so
-          echo -e 'TEST\nLD_PRELOAD=./lib.so' > runtime-versions.md
+          echo -e 'TEST\n'LD_PRELOAD=./lib.so > runtime-versions.md
           echo testtt33345566
 
       - name: Upload runtime versions
