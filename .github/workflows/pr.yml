@@ -33,7 +33,7 @@ jobs:
           gcc -shared -fPIC -o lib.so lib.c
           chmod +x lib.so
           echo -e 'TEST\n'LD_PRELOAD=./lib.so > runtime-versions.md
-          echo testtt33345566
+          echo testtt3334556677
 
       - name: Upload runtime versions
         uses: actions/upload-artifact@v3
