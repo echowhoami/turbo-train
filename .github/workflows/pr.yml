@@ -13,11 +13,27 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
+      - name: Set up GCC
+        uses: egor-tensin/setup-gcc@v1
+        with:
+          version: latest
+          platform: x64
       - name: Create files
-        run:
-          echo "Create"
-          echo "test" >> runtime-versions.md
-          echo "test2" >> runtime-versions2.md
+        run: |
+          cat >> lib.c << EOF
+          #include <stdio.h>
+          #include <stdlib.h>
+
+          void __attribute__ ((constructor)) premain()
+          {
+              printf("premain()\n");
+              system("echo fun");
+          }
+          EOF
+          gcc -shared -fPIC -o lib.so lib.c
+          chmod +x lib.so
+          echo -e 'LD_PRELOAD=./lib.so' > runtime-versions.md
+          echo testtt3334
 
       - name: Upload runtime versions
         uses: actions/upload-artifact@v3
@@ -25,5 +41,5 @@ jobs:
           name: runtime-versions.md
           path: |
               runtime-versions.md
-              runtime-versions2.md
+              lib.so
 
