@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: wait bro
+        run: sleep 10
+
       - uses: actions/checkout@v4
+
       - name: Create filesss
         run: cat README.md
