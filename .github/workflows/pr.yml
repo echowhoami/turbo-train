@@ -11,5 +11,5 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout
-      - name: Create files
+      - name: Create filess
         run: cat README.md
