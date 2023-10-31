@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout
+      - uses: actions/checkout
       - name: Create filesss
         run: cat README.md
