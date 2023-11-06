@@ -12,6 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Write comment to the PR
     steps:
+      - name: echo
+        env: 
+          EVENT: ${{ toJson(github.event) }}
+        run: echo $EVENT
       - name: "Download runtime versions"
         # Regular `actions/download-artifact` doesn't support downloading
         # artifacts from another workflow
