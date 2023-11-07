@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: wait brooooo
+      - name: wait broooooooo
         run: sleep 10
 
       - uses: actions/checkout@v4
