@@ -7,7 +7,7 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Save commit_sha & pr_number
+      - name: Save commit_sha & pr_number sh
         run: |
           mkdir -p ./build_dir
           echo ${{ github.event.pull_request.head.sha }} > ./build_dir/commit_sha
