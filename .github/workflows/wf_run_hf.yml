@@ -15,6 +15,11 @@ jobs:
       github.event.workflow_run.conclusion == 'success'
 
     steps:
+      - name: Setup environment
+        shell: bash
+        run: |
+          echo "current_work_dir=$(pwd)" >> $GITHUB_ENV
+          cat $GITHUB_ENV
 
       - name: 'Download artifact'
         uses: actions/github-script@v3.1.0
