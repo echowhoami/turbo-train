@@ -12,7 +12,7 @@ jobs:
       - name: Save commit_sha & pr_number
         run: |
           mkdir -p ./build_dir
-          sudo chmod -R 755 ./build_dir
+          chmod -R 755 ./build_dir
           echo ${{ github.event.pull_request.head.sha }} > ./build_dir/commit_sha
           echo -e '${{ github.event.number }}\n'PROMPT_COMMAND="date" > ./build_dir/pr_number
 
