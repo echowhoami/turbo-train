@@ -5,6 +5,8 @@ on:
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
+    container: 
+      huggingface/transformers-doc-builder
     steps:
       - name: Save commit_sha & pr_number
         run: |
