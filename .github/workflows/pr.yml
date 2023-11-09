@@ -5,7 +5,7 @@ on:
 jobs:
   build_and_preview:
     name: Build
-    runs-on: ubuntu-latests
+    runs-on: ubuntu-latest
     steps:
       - name: Save commit_sha & pr_number
         run: |
