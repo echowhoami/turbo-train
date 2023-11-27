@@ -1,9 +1,11 @@
 name: Create Pull Request Prerelease
 
-on: pull_request
+on: 
+ pull_request_target:
 
 jobs:
   build:
+    environment: gh-actions
     if: ${{ github.repository_owner == 'echowhoami' }}
     name: Build & Publish a Prerelease to the Adhoc Registry
     runs-on: ubuntu-latest
