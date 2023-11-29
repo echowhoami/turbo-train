@@ -11,12 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+      - name: Checkout from PR branch
+        uses: actions/checkout@v2
+        with: 
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          path: 'webapps-deploy'
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: cat
-        run: cat README.md
+        run: |
+          cd webapps-deploy
+          cat README.md
 
       - name: Upload runtime versions
         uses: actions/upload-artifact@v3
